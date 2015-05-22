@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript MDN 笔记(一) | Ashley Ren&#39;s 笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript 笔记JavaScript is a croos-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment, js can be connected to the objects of its environmen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript MDN 笔记(一)">
+<meta property="og:url" content="http://ashleyren.github.io/2015/05/20/js-note1/index.html">
+<meta property="og:site_name" content="Ashley Ren's 笔记">
+<meta property="og:description" content="JavaScript 笔记JavaScript is a croos-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment, js can be connected to the objects of its environmen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript MDN 笔记(一)">
+<meta name="twitter:description" content="JavaScript 笔记JavaScript is a croos-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment, js can be connected to the objects of its environmen">
+  
+    <link rel="alternative" href="/atom.xml" title="Ashley Ren&#39;s 笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ashley Ren&#39;s 笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">所有文章</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://ashleyren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js-note1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/js-note1/" class="article-date">
+  <time datetime="2015-05-20T21:14:44.000Z" itemprop="datePublished">2015-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript MDN 笔记(一)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 笔记<br>JavaScript is a croos-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment, js can be connected to the objects of its environment to provide programmatic control over them.</p>
+<ul>
+<li>Client-side js extends the core language by <code>supplying objects to
+control a browser and its DOM</code>.</li>
+<li>Server-side js extends the core language by <code>supplying object relevant
+to running js on a server</code>.</li>
+</ul>
+<p>js vs Java:</p>
+<ul>
+<li>Class-based. 对象分为对象和对象实例。类和对象的属性和方法不能动态添加。</li>
+<li>variable data types must be declared: static typing.</li>
+<li>Can automatically write to hard disk.</li>
+</ul>
+<p>js:</p>
+<ul>
+<li>Objected-oriented. No distinction between types of objects. </li>
+<li>继承是使用的prototype mechanism. 属性和方法可以被动态添加到object上。 变量数据类型不用声明: dynamic typing. </li>
+<li>cannot automatically write to hard disk.</li>
+</ul>
+<h4 id="js_vs_ECMAScript_specification">js vs ECMAScript specification</h4><p>The standardlized version of js, called ECMAScript, behaves the same way in all applications that support the standard.<br>The <code>ECMAScript</code> does not describe the <code>DOM</code> (is standardlized by the  W3C). the <code>DOM</code> defined the way in which HTML document objects are exposed to your script.<br>小补充：<br>The ECMAScript specification uses terminology and syntax that may be unfamiliar to a JavaScript programmer. Although the description of the language may differ in ECMAScript, the language itself remains the same. JavaScript supports all functionality outlined in the ECMAScript specification.<br>The JavaScript documentation describes aspects of the language that are appropriate for a JavaScript programmer.</p>
+<hr>
+<h2 id="Grammer_and_types">Grammer and types</h2><p>js is case-sensitive and use Unicode char set.</p>
+<h4 id="Declarations">Declarations</h4><p><code>var</code> 变量声明<br><code>let</code> 块声明<br><code>const</code> 一个read-only的常量（有点像C里面的宏定义？）</p>
+<h4 id="Variables">Variables</h4><p>js中变量名必须以<strong><code>字母</code></strong>，下划线<strong><code>_</code></strong> 或者美元符号<strong><code>$</code></strong>开头，开头后面的还可以包括数字<code>0-9</code>。 恩注意是区分大小写的。恩当然还有可以使用<code>Unicode</code>的符号。</p>
+<p>A variable declared using the <code>var</code> or <code>let</code> statement with no initial value specified has the value <code>undefined</code>.</p>
+<ul>
+<li>尝试访问undeclared variable的话会得到ReferenceError.</li>
+<li>undefined 在boolean转换的时候会转换成false</li>
+<li>在转换成数字的时候变成NaN</li>
+</ul>
+<p>When you evaluate a null variable, the null value behaves as 0 in numeric contexts and as false in boolean contexts. </p>
+<ul>
+<li>null 在转换数字：0，boolean：false</li>
+</ul>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(n * <span class="number">32</span>); <span class="comment">//log 0</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="hoisting">hoisting</h4><p>you can refer to a variable declared later without getting an exception.<br>all var statements in a function should be placed as near to the top of the function as possible.</p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x === <span class="literal">undefined</span>); <span class="comment">// logs "true"</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// will return a value of undefined</span></span><br><span class="line"><span class="keyword">var</span> myvar = <span class="string">"my value"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(myvar); <span class="comment">// undefined</span></span><br><span class="line">  <span class="keyword">var</span> myvar = <span class="string">"local value"</span>;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>会被hoist成为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="built_in">console</span>.log(x === <span class="literal">undefined</span>); <span class="comment">// logs "true"</span></span><br><span class="line">x = <span class="number">3</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> myvar = <span class="string">"my value"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myvar;</span><br><span class="line">  <span class="built_in">console</span>.log(myvar); <span class="comment">// undefined</span></span><br><span class="line">  myvar = <span class="string">"local value"</span>;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Const">Const</h4><p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
+<p>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// THIS WILL CAUSE AN ERROR</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> f = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// THIS WILL CAUSE AN ERROR ALSO</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> g = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">var</span> g;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//statements</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Data_types">Data types</h4><p>6种primitives：</p>
+<ul>
+<li><a href="#">Boolean</a></li>
+<li><a href="#">null</a>.   A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
+<li><a href="#">undefined</a></li>
+<li><a href="#">Number</a></li>
+<li><a href="#">String</a></li>
+<li><a href="#">Symbol</a>（new in ECMAScript 6）A data type whose instances are unique and immutable.</li>
+</ul>
+<p>另外一种类型 <a href="#">Object</a></p>
+<h4 id="Data_type_conversion">Data type conversion</h4><p>In expressions involving numeric and string values with the + operator, JavaScript converts numeric values to strings. For example, consider the following statements:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"The answer is "</span> + <span class="number">42</span> <span class="comment">// "The answer is 42"</span></span><br><span class="line">y = <span class="number">42</span> + <span class="string">" is the answer"</span> <span class="comment">// "42 is the answer"</span></span><br></pre></td></tr></table></figure></p>
+<p>In statements involving other operators, JavaScript does not convert numeric values to strings. For example:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"37"</span> - <span class="number">7</span> <span class="comment">// 30</span></span><br><span class="line"><span class="string">"37"</span> + <span class="number">7</span> <span class="comment">// "377"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="strings_-&gt;_numbers">strings -&gt; numbers</h4><ul>
+<li>parseInt()</li>
+<li>parseFloat()</li>
+</ul>
+<p>An alternative method of retrieving a number from a string is with the + (unary plus) operator:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"1.1"</span> + <span class="string">"1.1"</span> = <span class="string">"1.11.1"</span></span><br><span class="line">(+<span class="string">"1.1"</span>) + (+<span class="string">"1.1"</span>) = <span class="number">2.2</span>   </span><br><span class="line"><span class="comment">// Note: the parentheses are added for clarity, not required.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Literals(规范)">Literals(规范)</h3><h4 id="Array_literals">Array literals</h4><p>额外的逗号<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fish = [<span class="string">"Lion"</span>, , <span class="string">"Angel"</span>];</span><br></pre></td></tr></table></figure></p>
+<p>fish[0] is “Lion”, fish[1] is undefined, and fish[2] is “Angel”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [<span class="string">'home'</span>, , <span class="string">'school'</span>, ];</span><br></pre></td></tr></table></figure>
+<p>最后一个逗号被忽略了the length of the array is three. There is no myList[3].</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [ , <span class="string">'home'</span>, , <span class="string">'school'</span>];</span><br></pre></td></tr></table></figure>
+<p>开头的逗号不能忽略哟~the length of the array is four, and myList[0] and myList[2] are missing.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [<span class="string">'home'</span>, , <span class="string">'school'</span>, , ];</span><br></pre></td></tr></table></figure>
+<p>length of the array is four, and myList[1] and myList[3] are missing. Only the last comma is ignored.</p>
+<h4 id="Integers">Integers</h4><p>备注：decimal (base 10), hexadecimal (base 16), octal (base 8) and binary (base 2).<br>十进制的开头不能是0<br>开头是0的被认为是八进制的，八进制只能包含0-7<br>开头是0x或者0X被认为是十六进制，包含0-9，a-f，A-F</p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>, <span class="number">117</span> and -<span class="number">345</span> (decimal, base <span class="number">10</span>)</span><br><span class="line"><span class="number">015</span>, <span class="number">0001</span> and -<span class="number">077</span> (octal, base <span class="number">8</span>) </span><br><span class="line"><span class="number">0x1123</span>, <span class="number">0x00111</span> and -<span class="number">0xF1A7</span> (hexadecimal, <span class="string">"hex"</span> or base <span class="number">16</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="浮点数">浮点数</h4><p>浮点数的组成：</p>
+<ol>
+<li>一个十进制整数（带符号+或者-）</li>
+<li>小数点</li>
+<li>小数部分（是个十进制整数）</li>
+<li>一个指数exponent</li>
+</ol>
+<p>是酱紫的： </p>
+<blockquote>
+<p>[(+|-)][digits][.digits][(E|e)[(+|-)]digits]</p>
+</blockquote>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="number">2345.789</span></span><br><span class="line">.<span class="number">3333333333333333333</span></span><br><span class="line">-.<span class="number">283185307179586</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Object">Object</h4><p>You should not use an object literal at the beginning of a statement. This will lead to an error or not behave as you expect, because the { will be interpreted as the beginning of a block.<br>you can use a numeric or string literal for the name of a property or nest an object inside another.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = &#123; manyCars: &#123;a: <span class="string">"Saab"</span>, <span class="string">"b"</span>: <span class="string">"Jeep"</span>&#125;, <span class="number">7</span>: <span class="string">"Mazda"</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(car.manyCars.b); <span class="comment">// Jeep</span></span><br><span class="line"><span class="built_in">console</span>.log(car[<span class="number">7</span>]); <span class="comment">// Mazda</span></span><br></pre></td></tr></table></figure></p>
+<p>两种表示方法都能够来访问这个属性。</p>
+<p>属性的名字可以是任何string，即使是空string。<br>If the property name would not be a valid JavaScript identifier, it must be enclosed in quotes. Property names that would not be valid identifiers also cannot be accessed as a dot (.) property, but can be accessed and set with the array-like notation(“[]”)。太玄乎了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> unusualPropertyNames = &#123;</span><br><span class="line">  <span class="string">""</span>: <span class="string">"An empty string"</span>,</span><br><span class="line">  <span class="string">"!"</span>: <span class="string">"Bang!"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames.<span class="string">""</span>);   <span class="comment">// SyntaxError: Unexpected string</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames[<span class="string">""</span>]);  <span class="comment">// "An empty string"</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames.!);    <span class="comment">// SyntaxError: Unexpected token !</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames[<span class="string">"!"</span>]); <span class="comment">// "Bang!"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = &#123;a: <span class="string">"alpha"</span>, <span class="number">2</span>: <span class="string">"two"</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo.a);    <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">2</span>]);   <span class="comment">// two</span></span><br><span class="line"><span class="comment">//console.log(foo.2);  // Error: missing ) after argument list</span></span><br><span class="line"><span class="comment">//console.log(foo[a]); // Error: a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">"a"</span>]); <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">"2"</span>]); <span class="comment">// two</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="String_Literals">String Literals</h4><p>string 可以使用js当中任何的string方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"John's cat"</span>.length); <span class="comment">//10</span></span><br><span class="line"><span class="comment">// Will print the number of symbols in the string including whitespace.</span></span><br></pre></td></tr></table></figure></p>
+<p>Using special characters in strings<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"one line \n another line"</span></span><br></pre></td></tr></table></figure></p>
+<p>转义表见图片</p>
+<h4 id="Escaping_characters">Escaping characters</h4><p>You can also escape line breaks by preceding them with backslash. The backslash and line break are both removed from the value of the string.<br>意思就是说，本来有换行的，用个\就能够把换行符号抵消掉了，打出来还是一行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"this string \</span><br><span class="line">is broken \</span><br><span class="line">across multiple\</span><br><span class="line">lines."</span></span><br><span class="line"><span class="built_in">console</span>.log(str);   </span><br><span class="line"><span class="comment">// this string is broken across multiple lines.</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/20/js-note1/" data-id="ci9ynkbbj0000vf1uzibbtp63" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/21/js-note2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          javascript MDN 笔记(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/18/js事件委托/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript Event Delegation 事件委托</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"ashleyren"}; 
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲言碎语/">闲言碎语</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a><a href="/tags/blog/" style="font-size: 10px;">blog</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/github-pages/" style="font-size: 10px;">github pages</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/05/21/js-note2/">javascript MDN 笔记(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/20/js-note1/">javascript MDN 笔记(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/js事件委托/">JavaScript Event Delegation 事件委托</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/jsQuestions/">待整理 Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 河马宝宝<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">所有文章</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ashley Ren&#39;s BLOG</title>
+  <title>Ashley Ren&#39;s 笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="热爱新鲜事物的天秤吃货">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ashley Ren's BLOG">
+<meta property="og:title" content="Ashley Ren's 笔记">
 <meta property="og:url" content="http://ashleyren.github.io/index.html">
-<meta property="og:site_name" content="Ashley Ren's BLOG">
+<meta property="og:site_name" content="Ashley Ren's 笔记">
 <meta property="og:description" content="热爱新鲜事物的天秤吃货">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ashley Ren's BLOG">
+<meta name="twitter:title" content="Ashley Ren's 笔记">
 <meta name="twitter:description" content="热爱新鲜事物的天秤吃货">
   
-    <link rel="alternative" href="/atom.xml" title="Ashley Ren&#39;s BLOG" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Ashley Ren&#39;s 笔记" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,12 +33,8 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Ashley Ren&#39;s BLOG</a>
+        <a href="/" id="logo">Ashley Ren&#39;s 笔记</a>
       </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">其实我是个文静的话唠。</a>
-        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -66,6 +62,333 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-js-note2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/21/js-note2/" class="article-date">
+  <time datetime="2015-05-21T20:48:35.000Z" itemprop="datePublished">2015-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/21/js-note2/">javascript MDN 笔记(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Important:">Important:</h4><p>JavaScript does <strong>not</strong> have block scope prior to <code>ECMAScript 6</code>. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyond the block itself. In other words, block statements do not introduce a scope. Although “standalone” blocks are valid syntax, you do not want to use standalone blocks in JavaScript, because they don’t do what you think they do, if you think they do anything like such blocks in C or Java.<br>也就是说ES6之前，js的block是没有自己的scope的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// outputs 2</span></span><br></pre></td></tr></table></figure></p>
+<p>ES6提供了<code>let</code>来做block的scope</p>
+<h4 id="Falsy_values">Falsy values</h4><ul>
+<li>false</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>the empty string(“”)</li>
+</ul>
+<p>Do not confuse the primitive boolean values true and false with the true and false values of the Boolean object.<br>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (b) <span class="comment">// this condition evaluates to true</span></span><br></pre></td></tr></table></figure></p>
+<p><code>switch</code> statement 复习一下，老是记得不是很清楚<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> label_1:</span><br><span class="line">    statements_1</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">  <span class="keyword">case</span> label_2:</span><br><span class="line">    statements_2</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    statements_def</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (fruittype) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Oranges"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oranges are $0.59 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Apples"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Apples are $0.32 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Bananas"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Bananas are $0.48 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Cherries"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Cherries are $3.00 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Mangoes"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Mangoes are $0.56 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Papayas"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Mangoes and papayas are $2.79 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Sorry, we are out of "</span> + fruittype + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Is there anything else you'd like?"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="Exception_handling_statements">Exception handling statements</h4><blockquote>
+<p>throw expression;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="string">"Error2"</span>;   <span class="comment">// String type</span></span><br><span class="line"><span class="keyword">throw</span> <span class="number">42</span>;         <span class="comment">// Number type</span></span><br><span class="line"><span class="keyword">throw</span> <span class="literal">true</span>;       <span class="comment">// Boolean type</span></span><br><span class="line"><span class="keyword">throw</span> &#123;toString: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">"I'm an object!"</span>; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>try … catch …</p>
+</blockquote>
+<p>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="string">"myException"</span> <span class="comment">// generates an exception</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// statements to handle any exceptions</span></span><br><span class="line">  logMyErrors(e) <span class="comment">// pass exception object to error handler</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>finally</p>
+</blockquote>
+<p><code>finally</code> block 里面的内容在<code>try</code>和<code>catch</code>之后执行，不论是否catch到了error都要执行<code>finally</code>里面的内容。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openMyFile();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  writeMyFile(theData); <span class="comment">//This may throw a error</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;  </span><br><span class="line">  handleError(e); <span class="comment">// If we got a error we handle it</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  closeMyFile(); <span class="comment">// always close the resource</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果finally block里面返回某个值，那么这个值成为try-catch-finally整个的产物返回值，不论try-catch里面的返回值是什么。</p>
+<p>很精彩的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">"bogus"</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// this return statement is suspended</span></span><br><span class="line">                 <span class="comment">// until finally block has completed</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>); <span class="comment">// not reachable</span></span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// overwrites the previous "return"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>); <span class="comment">// not reachable</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// "return false" is executed now  </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">5</span>); <span class="comment">// not reachable</span></span><br><span class="line">&#125;</span><br><span class="line">f(); <span class="comment">// alerts 0, 1, 3; returns false</span></span><br></pre></td></tr></table></figure></p>
+<p>nesting try…catch<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">"bogus"</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caught inner "bogus"'</span>);</span><br><span class="line">    <span class="keyword">throw</span> e; <span class="comment">// this throw statement is suspended until </span></span><br><span class="line">             <span class="comment">// finally block has completed</span></span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// overwrites the previous "throw"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// "return false" is executed now</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  f();</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="comment">// this is never reached because the throw inside</span></span><br><span class="line">  <span class="comment">// the catch is overwritten</span></span><br><span class="line">  <span class="comment">// by the return in finally</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'caught outer "bogus"'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OUTPUT</span></span><br><span class="line"><span class="comment">// caught inner "bogus"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Error_objects的使用">Error objects的使用</h4><p><code>name</code> and <code>message</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomethingErrorProne</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (ourCodeMakesAMistake()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> (<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'The message'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    doSomethingToGetAJavascriptError();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">....</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  doSomethingErrorProne();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.name); <span class="comment">// logs 'Error'</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.message); <span class="comment">// logs 'The message' or a JavaScript error message)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Promise对象">Promise对象</h4><p>ES6提出了Promise对象允许你<code>control the flow of deferred and asynchronous operations</code></p>
+<ul>
+<li>pending: initial state, not fulfilled or rejected.</li>
+<li>fulfilled: successful operation</li>
+<li>rejected: failed operation.</li>
+<li>settled: the Promise is either fulfilled or rejected, but not pending.</li>
+</ul>
+<h4 id="Landing_an_image_with_XHR">Landing an image with XHR</h4><p>A simple example using Promise and XMLHttpRequest to load an image is available at the MDN GitHub promise-test repository. You can also see it in action. Each step is commented and allows you to follow the Promise and XHR architecture closely. Here is the uncommented version, showing the Promise flow so that you can get an idea:<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank" rel="external">参考链接</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">imgLoad</span><span class="params">(url)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span><span class="params">(resolve, reject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    request.open(<span class="string">'GET'</span>, url);</span><br><span class="line">    request.responseType = <span class="string">'blob'</span>;</span><br><span class="line">    request.onload = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">        resolve(request.response);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="built_in">Error</span>(<span class="string">'Image didn\'t load successfully; error code:'</span> </span><br><span class="line">                     + request.statusText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    request.onerror = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      reject(<span class="built_in">Error</span>(<span class="string">'There was a network error.'</span>));</span><br><span class="line">    &#125;;</span><br><span class="line">    request.send();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="for…in_statement">for…in statement</h4><p>The for…in statement iterates a specified variable over all the enumerable properties of an object.<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump_props</span><span class="params">(obj, obj_name)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    result += obj_name + <span class="string">"."</span> + i + <span class="string">" = "</span> + obj[i] + <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="for…of_statement(新功能还在试验中)">for…of statement(新功能还在试验中)</h4><p>The <code>for...of</code> statement creates a loop Iterating over iterable objects (including <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>arguments object</code> and so on), invoking a custom iteration hook with statements to be executed for the <a href="#">value</a> of each distinct property.<br>很好的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</span><br><span class="line">arr.foo = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "0", "1", "2", "foo"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "3", "5", "7"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/21/js-note2/" data-id="ci9ynkbcb000mvf1uw325ae0c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-note1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/js-note1/" class="article-date">
+  <time datetime="2015-05-20T21:14:44.000Z" itemprop="datePublished">2015-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/20/js-note1/">javascript MDN 笔记(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 笔记<br>JavaScript is a croos-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment, js can be connected to the objects of its environment to provide programmatic control over them.</p>
+<ul>
+<li>Client-side js extends the core language by <code>supplying objects to
+control a browser and its DOM</code>.</li>
+<li>Server-side js extends the core language by <code>supplying object relevant
+to running js on a server</code>.</li>
+</ul>
+<p>js vs Java:</p>
+<ul>
+<li>Class-based. 对象分为对象和对象实例。类和对象的属性和方法不能动态添加。</li>
+<li>variable data types must be declared: static typing.</li>
+<li>Can automatically write to hard disk.</li>
+</ul>
+<p>js:</p>
+<ul>
+<li>Objected-oriented. No distinction between types of objects. </li>
+<li>继承是使用的prototype mechanism. 属性和方法可以被动态添加到object上。 变量数据类型不用声明: dynamic typing. </li>
+<li>cannot automatically write to hard disk.</li>
+</ul>
+<h4 id="js_vs_ECMAScript_specification">js vs ECMAScript specification</h4><p>The standardlized version of js, called ECMAScript, behaves the same way in all applications that support the standard.<br>The <code>ECMAScript</code> does not describe the <code>DOM</code> (is standardlized by the  W3C). the <code>DOM</code> defined the way in which HTML document objects are exposed to your script.<br>小补充：<br>The ECMAScript specification uses terminology and syntax that may be unfamiliar to a JavaScript programmer. Although the description of the language may differ in ECMAScript, the language itself remains the same. JavaScript supports all functionality outlined in the ECMAScript specification.<br>The JavaScript documentation describes aspects of the language that are appropriate for a JavaScript programmer.</p>
+<hr>
+<h2 id="Grammer_and_types">Grammer and types</h2><p>js is case-sensitive and use Unicode char set.</p>
+<h4 id="Declarations">Declarations</h4><p><code>var</code> 变量声明<br><code>let</code> 块声明<br><code>const</code> 一个read-only的常量（有点像C里面的宏定义？）</p>
+<h4 id="Variables">Variables</h4><p>js中变量名必须以<strong><code>字母</code></strong>，下划线<strong><code>_</code></strong> 或者美元符号<strong><code>$</code></strong>开头，开头后面的还可以包括数字<code>0-9</code>。 恩注意是区分大小写的。恩当然还有可以使用<code>Unicode</code>的符号。</p>
+<p>A variable declared using the <code>var</code> or <code>let</code> statement with no initial value specified has the value <code>undefined</code>.</p>
+<ul>
+<li>尝试访问undeclared variable的话会得到ReferenceError.</li>
+<li>undefined 在boolean转换的时候会转换成false</li>
+<li>在转换成数字的时候变成NaN</li>
+</ul>
+<p>When you evaluate a null variable, the null value behaves as 0 in numeric contexts and as false in boolean contexts. </p>
+<ul>
+<li>null 在转换数字：0，boolean：false</li>
+</ul>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(n * <span class="number">32</span>); <span class="comment">//log 0</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="hoisting">hoisting</h4><p>you can refer to a variable declared later without getting an exception.<br>all var statements in a function should be placed as near to the top of the function as possible.</p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x === <span class="literal">undefined</span>); <span class="comment">// logs "true"</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// will return a value of undefined</span></span><br><span class="line"><span class="keyword">var</span> myvar = <span class="string">"my value"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(myvar); <span class="comment">// undefined</span></span><br><span class="line">  <span class="keyword">var</span> myvar = <span class="string">"local value"</span>;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>会被hoist成为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="built_in">console</span>.log(x === <span class="literal">undefined</span>); <span class="comment">// logs "true"</span></span><br><span class="line">x = <span class="number">3</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> myvar = <span class="string">"my value"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myvar;</span><br><span class="line">  <span class="built_in">console</span>.log(myvar); <span class="comment">// undefined</span></span><br><span class="line">  myvar = <span class="string">"local value"</span>;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Const">Const</h4><p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
+<p>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// THIS WILL CAUSE AN ERROR</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> f = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// THIS WILL CAUSE AN ERROR ALSO</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> g = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">var</span> g;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//statements</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Data_types">Data types</h4><p>6种primitives：</p>
+<ul>
+<li><a href="#">Boolean</a></li>
+<li><a href="#">null</a>.   A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
+<li><a href="#">undefined</a></li>
+<li><a href="#">Number</a></li>
+<li><a href="#">String</a></li>
+<li><a href="#">Symbol</a>（new in ECMAScript 6）A data type whose instances are unique and immutable.</li>
+</ul>
+<p>另外一种类型 <a href="#">Object</a></p>
+<h4 id="Data_type_conversion">Data type conversion</h4><p>In expressions involving numeric and string values with the + operator, JavaScript converts numeric values to strings. For example, consider the following statements:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"The answer is "</span> + <span class="number">42</span> <span class="comment">// "The answer is 42"</span></span><br><span class="line">y = <span class="number">42</span> + <span class="string">" is the answer"</span> <span class="comment">// "42 is the answer"</span></span><br></pre></td></tr></table></figure></p>
+<p>In statements involving other operators, JavaScript does not convert numeric values to strings. For example:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"37"</span> - <span class="number">7</span> <span class="comment">// 30</span></span><br><span class="line"><span class="string">"37"</span> + <span class="number">7</span> <span class="comment">// "377"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="strings_-&gt;_numbers">strings -&gt; numbers</h4><ul>
+<li>parseInt()</li>
+<li>parseFloat()</li>
+</ul>
+<p>An alternative method of retrieving a number from a string is with the + (unary plus) operator:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"1.1"</span> + <span class="string">"1.1"</span> = <span class="string">"1.11.1"</span></span><br><span class="line">(+<span class="string">"1.1"</span>) + (+<span class="string">"1.1"</span>) = <span class="number">2.2</span>   </span><br><span class="line"><span class="comment">// Note: the parentheses are added for clarity, not required.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Literals(规范)">Literals(规范)</h3><h4 id="Array_literals">Array literals</h4><p>额外的逗号<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fish = [<span class="string">"Lion"</span>, , <span class="string">"Angel"</span>];</span><br></pre></td></tr></table></figure></p>
+<p>fish[0] is “Lion”, fish[1] is undefined, and fish[2] is “Angel”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [<span class="string">'home'</span>, , <span class="string">'school'</span>, ];</span><br></pre></td></tr></table></figure>
+<p>最后一个逗号被忽略了the length of the array is three. There is no myList[3].</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [ , <span class="string">'home'</span>, , <span class="string">'school'</span>];</span><br></pre></td></tr></table></figure>
+<p>开头的逗号不能忽略哟~the length of the array is four, and myList[0] and myList[2] are missing.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myList = [<span class="string">'home'</span>, , <span class="string">'school'</span>, , ];</span><br></pre></td></tr></table></figure>
+<p>length of the array is four, and myList[1] and myList[3] are missing. Only the last comma is ignored.</p>
+<h4 id="Integers">Integers</h4><p>备注：decimal (base 10), hexadecimal (base 16), octal (base 8) and binary (base 2).<br>十进制的开头不能是0<br>开头是0的被认为是八进制的，八进制只能包含0-7<br>开头是0x或者0X被认为是十六进制，包含0-9，a-f，A-F</p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>, <span class="number">117</span> and -<span class="number">345</span> (decimal, base <span class="number">10</span>)</span><br><span class="line"><span class="number">015</span>, <span class="number">0001</span> and -<span class="number">077</span> (octal, base <span class="number">8</span>) </span><br><span class="line"><span class="number">0x1123</span>, <span class="number">0x00111</span> and -<span class="number">0xF1A7</span> (hexadecimal, <span class="string">"hex"</span> or base <span class="number">16</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="浮点数">浮点数</h4><p>浮点数的组成：</p>
+<ol>
+<li>一个十进制整数（带符号+或者-）</li>
+<li>小数点</li>
+<li>小数部分（是个十进制整数）</li>
+<li>一个指数exponent</li>
+</ol>
+<p>是酱紫的： </p>
+<blockquote>
+<p>[(+|-)][digits][.digits][(E|e)[(+|-)]digits]</p>
+</blockquote>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="number">2345.789</span></span><br><span class="line">.<span class="number">3333333333333333333</span></span><br><span class="line">-.<span class="number">283185307179586</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Object">Object</h4><p>You should not use an object literal at the beginning of a statement. This will lead to an error or not behave as you expect, because the { will be interpreted as the beginning of a block.<br>you can use a numeric or string literal for the name of a property or nest an object inside another.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = &#123; manyCars: &#123;a: <span class="string">"Saab"</span>, <span class="string">"b"</span>: <span class="string">"Jeep"</span>&#125;, <span class="number">7</span>: <span class="string">"Mazda"</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(car.manyCars.b); <span class="comment">// Jeep</span></span><br><span class="line"><span class="built_in">console</span>.log(car[<span class="number">7</span>]); <span class="comment">// Mazda</span></span><br></pre></td></tr></table></figure></p>
+<p>两种表示方法都能够来访问这个属性。</p>
+<p>属性的名字可以是任何string，即使是空string。<br>If the property name would not be a valid JavaScript identifier, it must be enclosed in quotes. Property names that would not be valid identifiers also cannot be accessed as a dot (.) property, but can be accessed and set with the array-like notation(“[]”)。太玄乎了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> unusualPropertyNames = &#123;</span><br><span class="line">  <span class="string">""</span>: <span class="string">"An empty string"</span>,</span><br><span class="line">  <span class="string">"!"</span>: <span class="string">"Bang!"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames.<span class="string">""</span>);   <span class="comment">// SyntaxError: Unexpected string</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames[<span class="string">""</span>]);  <span class="comment">// "An empty string"</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames.!);    <span class="comment">// SyntaxError: Unexpected token !</span></span><br><span class="line"><span class="built_in">console</span>.log(unusualPropertyNames[<span class="string">"!"</span>]); <span class="comment">// "Bang!"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = &#123;a: <span class="string">"alpha"</span>, <span class="number">2</span>: <span class="string">"two"</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo.a);    <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">2</span>]);   <span class="comment">// two</span></span><br><span class="line"><span class="comment">//console.log(foo.2);  // Error: missing ) after argument list</span></span><br><span class="line"><span class="comment">//console.log(foo[a]); // Error: a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">"a"</span>]); <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">"2"</span>]); <span class="comment">// two</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="String_Literals">String Literals</h4><p>string 可以使用js当中任何的string方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"John's cat"</span>.length); <span class="comment">//10</span></span><br><span class="line"><span class="comment">// Will print the number of symbols in the string including whitespace.</span></span><br></pre></td></tr></table></figure></p>
+<p>Using special characters in strings<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"one line \n another line"</span></span><br></pre></td></tr></table></figure></p>
+<p>转义表见图片</p>
+<h4 id="Escaping_characters">Escaping characters</h4><p>You can also escape line breaks by preceding them with backslash. The backslash and line break are both removed from the value of the string.<br>意思就是说，本来有换行的，用个\就能够把换行符号抵消掉了，打出来还是一行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"this string \</span><br><span class="line">is broken \</span><br><span class="line">across multiple\</span><br><span class="line">lines."</span></span><br><span class="line"><span class="built_in">console</span>.log(str);   </span><br><span class="line"><span class="comment">// this string is broken across multiple lines.</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/20/js-note1/" data-id="ci9ynkbbj0000vf1uzibbtp63" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js事件委托" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/18/js事件委托/" class="article-date">
+  <time datetime="2015-05-18T17:43:53.000Z" itemprop="datePublished">2015-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/18/js事件委托/">JavaScript Event Delegation 事件委托</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么叫委托呢？想想我们现实生活中，自己要干的事，让别人来帮忙完成，这就是把事情“委托”给别人。<br>Javascript的事件委托机制同理:<br>本来一个<code>监听函数</code>，要处理子节点触发的事件，现在，把这个<code>监听函数</code>绑定到父层节点上，让父辈来监听事件。在父辈元素的监听函数中，可通过<code>event.target</code>属性拿到触发事件的原始元素（子节点），然后再对其进行处理。</p>
+<p>   那这样做有什么好处呢？是监听<code>动态</code>增加的元素。比如我们现在有这样的需求，点击下面每个列表项弹出各自的内容，现在随着web应用的盛行，网页中使用异步请求来动态加载节点已经变的很普遍，所以我们点击下方的按钮要在列表中增加一项，并且点击新增加的节点也要弹出内容。HTML结构如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ol</span> <span class="attribute">id</span>=<span class="value">"olist"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ol</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>若我们使用之前的监听器绑定方式，需要遍历所有的<code>li</code>元素并监听，代码是这样：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var olist = document.getElementById('olist').childNodes;</span><br><span class="line">for(var i=0; i&lt;olist.length; i++)&#123;</span><br><span class="line">    olist[i].addEventListener('click',function(&#123;</span><br><span class="line">            alert(this.innerText);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面处理方式的缺陷就是，当这个<code>ol</code>里面元素动态增加的时候，新增加的元素没有事件处理函数，所以点击的时候没有反应。<br>那么，要改变的话就要用到事件委托，把<code>ol</code>里面的所有元素都委托给ol来做，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> olist = <span class="built_in">document</span>.getElementById(<span class="string">'olist'</span>);</span><br><span class="line">olist.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(event.target.innerText);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>这样<code>ol</code>里面元素<code>li</code>的事件都会冒泡到<code>ol</code>，<code>event.target</code>指向对应的<code>li</code>，打印出内容。棒棒哒！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/18/js事件委托/" data-id="ci9ynkbc9000jvf1uoytua3b2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jsQuestions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/18/jsQuestions/" class="article-date">
+  <time datetime="2015-05-18T14:12:34.000Z" itemprop="datePublished">2015-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/18/jsQuestions/">待整理 Notes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>Q1</strong>: What is the value of <code>foo</code>?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">10</span> + <span class="string">'20'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>结果为<code>“1020”</code></p>
+<p>这种只要是由一个string，结果就是string</p>
+<hr>
+<p>How would you make this work?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add(<span class="number">2</span>, <span class="number">5</span>); <span class="comment">// 7</span></span><br><span class="line">add(<span class="number">2</span>)(<span class="number">5</span>); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure></p>
+<p>add(2,5)是很基本，讲讲add(2)(5)，这个说明add（2）返回的是一个函数<br>这里用到了函数的闭包：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解释： 这个add(2)的时候返回了function(y)记住了x=2，然后return x+y 就是2+5 变相的两个量都记下来了。</p>
+<p>所以结果是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>] + <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (y !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解释：if the number of arguments passed is less than the number of arguments in the function definition, the missing arguments will have a value of <code>undefined</code> when referenced within the function.</p>
+<hr>
+<p>Question: What value is returned from the following statement?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"i'm a lasagna hog"</span>.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
+<p>split(“”)是分隔符为空，所以把每个字符都存下来 包括“ ” 产生一个字符的array<br>reverse()是反转<br>join(“”)是连接 分隔符木有<br>结果是 ：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"goh angasal a m'i"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Question: What is the value of window.foo?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">( <span class="built_in">window</span>.foo || ( <span class="built_in">window</span>.foo = <span class="string">"bar"</span> ) );</span><br></pre></td></tr></table></figure>
+<p>如果foo有值就不变，否则值为bar</p>
+<hr>
+<p>Question: What is the outcome of the two alerts below?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"Hello"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> bar = <span class="string">" World"</span>;</span><br><span class="line">  alert(foo + bar);</span><br><span class="line">&#125;)();</span><br><span class="line">alert(foo + bar);</span><br></pre></td></tr></table></figure>
+<p>第一个打印hello word 因为是立即执行函数<br>第二个报错因为bar是局部变量，后一个alert作用域访问不到它哈哈哈哈</p>
+<hr>
+<p>What will the code below output? Explain your answer.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> == <span class="number">0.3</span>);</span><br></pre></td></tr></table></figure>
+<p>An educated answer to this question would simply be: “You can’t be sure. it might print out “0.3” and “true”, or it might not. Numbers in JavaScript are all treated with floating point precision, and as such, may not always yield the expected results.”</p>
+<p>The example provided above is classic case that demonstrates this issue. Surprisingly, it will print out:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.30000000000000004</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Write a simple function (less than 80 characters) that returns a boolean indicating whether or not a string is a palindrome.<br>解答：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPalindrome</span><span class="params">(str)</span> </span>&#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/\W/g</span>, <span class="string">''</span>).toLowerCase();</span><br><span class="line">    <span class="keyword">return</span> (str == str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>What is the significance, and what are the benefits, of including ‘use strict’ at the beginning of a JavaScript source file?<br><strong>Answer:</strong><br>The short and most important answer here is that use strict is a way to voluntarily enforce stricter parsing and error handling on your JavaScript code at runtime. Code errors that would otherwise have been ignored or would have failed silently will now generate errors or throw exceptions. In general, it is a good practice.</p>
+<p>Some of the key benefits of strict mode include:</p>
+<ul>
+<li><strong>Makes debugging easier</strong>. Code errors that would otherwise have been ignored or would have failed silently will now generate errors or throw exceptions, alerting you sooner to problems in your code and directing you more quickly to their source.</li>
+<li><strong>Prevents accidental globals.</strong> Without strict mode, assigning a value to an undeclared variable automatically creates a global variable with that name. This is one of the most common errors in JavaScript. In strict mode, attempting to do so throws an error.</li>
+<li><strong>Eliminates this coercion.</strong> Without strict mode, a reference to a this value of null or undefined is automatically coerced to the global. This can cause many headfakes and pull-out-your-hair kind of bugs. In strict mode, referencing a a this value of null or undefined throws an error.</li>
+<li><strong>Disallows duplicate property names or parameter values.</strong> Strict mode throws an error when it detects a duplicate named property in an object (e.g., <code>var object = {foo: &quot;bar&quot;, foo: &quot;baz&quot;};</code>) or a duplicate named argument for a function (e.g., <code>function foo(val1, val2, val1){}</code>), thereby catching what is almost certainly a bug in your code that you might otherwise have wasted lots of time tracking down.   </li>
+<li><strong>Makes <code>eval()</code> safer.</strong> There are some differences in the way <code>eval()</code> behaves in strict mode and in non-strict mode. Most significantly, in strict mode, variables and functions declared inside of an <code>eval()</code> statement are not created in the containing scope (they are created in the containing scope in non-strict mode, which can also be a common source of problems).</li>
+<li><strong>Throws error on invalid usage of <code>delete</code>.</strong> The <code>delete</code> operator (used to remove properties from objects) cannot be used on non-configurable properties of the object. Non-strict code will fail silently when an attempt is made to delete a non-configurable property, whereas strict mode will throw an error in such a case.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/18/jsQuestions/" data-id="ci9ynkbca000kvf1uv8rq84i8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -167,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ashleyren.github.io/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/" data-id="ci9pyz8go000ajg1ur3vdk6py" class="article-share-link">Share</a>
+      <a data-url="http://ashleyren.github.io/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/" data-id="ci9ynkbc50004vf1u6bbqfvug" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -210,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ashleyren.github.io/2015/05/13/开博客啦/" data-id="ci9pyz8g10000jg1uy8gh5pys" class="article-share-link">Share</a>
+      <a data-url="http://ashleyren.github.io/2015/05/13/开博客啦/" data-id="ci9ynkbc7000bvf1uczr4jxse" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-pages/">github pages</a></li></ul>
@@ -231,7 +554,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲言碎语/">闲言碎语</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲言碎语/">闲言碎语</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -252,11 +575,23 @@
       <ul>
         
           <li>
-            <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</a>
+            <a href="/2015/05/21/js-note2/">javascript MDN 笔记(二)</a>
           </li>
         
           <li>
-            <a href="/2015/05/13/开博客啦/">开博客啦</a>
+            <a href="/2015/05/20/js-note1/">javascript MDN 笔记(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/js事件委托/">JavaScript Event Delegation 事件委托</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/jsQuestions/">待整理 Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</a>
           </li>
         
       </ul>

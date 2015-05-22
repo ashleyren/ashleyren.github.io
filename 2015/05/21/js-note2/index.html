@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript MDN 笔记(二) | Ashley Ren&#39;s 笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Important:JavaScript does not have block scope prior to ECMAScript 6. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript MDN 笔记(二)">
+<meta property="og:url" content="http://ashleyren.github.io/2015/05/21/js-note2/index.html">
+<meta property="og:site_name" content="Ashley Ren's 笔记">
+<meta property="og:description" content="Important:JavaScript does not have block scope prior to ECMAScript 6. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript MDN 笔记(二)">
+<meta name="twitter:description" content="Important:JavaScript does not have block scope prior to ECMAScript 6. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyon">
+  
+    <link rel="alternative" href="/atom.xml" title="Ashley Ren&#39;s 笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ashley Ren&#39;s 笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">所有文章</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://ashleyren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js-note2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/21/js-note2/" class="article-date">
+  <time datetime="2015-05-21T20:48:35.000Z" itemprop="datePublished">2015-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript MDN 笔记(二)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Important:">Important:</h4><p>JavaScript does <strong>not</strong> have block scope prior to <code>ECMAScript 6</code>. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyond the block itself. In other words, block statements do not introduce a scope. Although “standalone” blocks are valid syntax, you do not want to use standalone blocks in JavaScript, because they don’t do what you think they do, if you think they do anything like such blocks in C or Java.<br>也就是说ES6之前，js的block是没有自己的scope的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// outputs 2</span></span><br></pre></td></tr></table></figure></p>
+<p>ES6提供了<code>let</code>来做block的scope</p>
+<h4 id="Falsy_values">Falsy values</h4><ul>
+<li>false</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>the empty string(“”)</li>
+</ul>
+<p>Do not confuse the primitive boolean values true and false with the true and false values of the Boolean object.<br>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (b) <span class="comment">// this condition evaluates to true</span></span><br></pre></td></tr></table></figure></p>
+<p><code>switch</code> statement 复习一下，老是记得不是很清楚<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> label_1:</span><br><span class="line">    statements_1</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">  <span class="keyword">case</span> label_2:</span><br><span class="line">    statements_2</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    statements_def</span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (fruittype) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Oranges"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oranges are $0.59 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Apples"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Apples are $0.32 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Bananas"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Bananas are $0.48 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Cherries"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Cherries are $3.00 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Mangoes"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Mangoes are $0.56 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"Papayas"</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Mangoes and papayas are $2.79 a pound."</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Sorry, we are out of "</span> + fruittype + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Is there anything else you'd like?"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="Exception_handling_statements">Exception handling statements</h4><blockquote>
+<p>throw expression;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="string">"Error2"</span>;   <span class="comment">// String type</span></span><br><span class="line"><span class="keyword">throw</span> <span class="number">42</span>;         <span class="comment">// Number type</span></span><br><span class="line"><span class="keyword">throw</span> <span class="literal">true</span>;       <span class="comment">// Boolean type</span></span><br><span class="line"><span class="keyword">throw</span> &#123;toString: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">"I'm an object!"</span>; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>try … catch …</p>
+</blockquote>
+<p>例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="string">"myException"</span> <span class="comment">// generates an exception</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// statements to handle any exceptions</span></span><br><span class="line">  logMyErrors(e) <span class="comment">// pass exception object to error handler</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>finally</p>
+</blockquote>
+<p><code>finally</code> block 里面的内容在<code>try</code>和<code>catch</code>之后执行，不论是否catch到了error都要执行<code>finally</code>里面的内容。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openMyFile();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  writeMyFile(theData); <span class="comment">//This may throw a error</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;  </span><br><span class="line">  handleError(e); <span class="comment">// If we got a error we handle it</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  closeMyFile(); <span class="comment">// always close the resource</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果finally block里面返回某个值，那么这个值成为try-catch-finally整个的产物返回值，不论try-catch里面的返回值是什么。</p>
+<p>很精彩的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">"bogus"</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// this return statement is suspended</span></span><br><span class="line">                 <span class="comment">// until finally block has completed</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>); <span class="comment">// not reachable</span></span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// overwrites the previous "return"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>); <span class="comment">// not reachable</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// "return false" is executed now  </span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">5</span>); <span class="comment">// not reachable</span></span><br><span class="line">&#125;</span><br><span class="line">f(); <span class="comment">// alerts 0, 1, 3; returns false</span></span><br></pre></td></tr></table></figure></p>
+<p>nesting try…catch<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">"bogus"</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caught inner "bogus"'</span>);</span><br><span class="line">    <span class="keyword">throw</span> e; <span class="comment">// this throw statement is suspended until </span></span><br><span class="line">             <span class="comment">// finally block has completed</span></span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// overwrites the previous "throw"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// "return false" is executed now</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  f();</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="comment">// this is never reached because the throw inside</span></span><br><span class="line">  <span class="comment">// the catch is overwritten</span></span><br><span class="line">  <span class="comment">// by the return in finally</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'caught outer "bogus"'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OUTPUT</span></span><br><span class="line"><span class="comment">// caught inner "bogus"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Error_objects的使用">Error objects的使用</h4><p><code>name</code> and <code>message</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomethingErrorProne</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (ourCodeMakesAMistake()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> (<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'The message'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    doSomethingToGetAJavascriptError();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">....</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  doSomethingErrorProne();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.name); <span class="comment">// logs 'Error'</span></span><br><span class="line">  <span class="built_in">console</span>.log(e.message); <span class="comment">// logs 'The message' or a JavaScript error message)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Promise对象">Promise对象</h4><p>ES6提出了Promise对象允许你<code>control the flow of deferred and asynchronous operations</code></p>
+<ul>
+<li>pending: initial state, not fulfilled or rejected.</li>
+<li>fulfilled: successful operation</li>
+<li>rejected: failed operation.</li>
+<li>settled: the Promise is either fulfilled or rejected, but not pending.</li>
+</ul>
+<h4 id="Landing_an_image_with_XHR">Landing an image with XHR</h4><p>A simple example using Promise and XMLHttpRequest to load an image is available at the MDN GitHub promise-test repository. You can also see it in action. Each step is commented and allows you to follow the Promise and XHR architecture closely. Here is the uncommented version, showing the Promise flow so that you can get an idea:<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank" rel="external">参考链接</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">imgLoad</span><span class="params">(url)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span><span class="params">(resolve, reject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    request.open(<span class="string">'GET'</span>, url);</span><br><span class="line">    request.responseType = <span class="string">'blob'</span>;</span><br><span class="line">    request.onload = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">        resolve(request.response);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="built_in">Error</span>(<span class="string">'Image didn\'t load successfully; error code:'</span> </span><br><span class="line">                     + request.statusText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    request.onerror = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      reject(<span class="built_in">Error</span>(<span class="string">'There was a network error.'</span>));</span><br><span class="line">    &#125;;</span><br><span class="line">    request.send();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="for…in_statement">for…in statement</h4><p>The for…in statement iterates a specified variable over all the enumerable properties of an object.<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump_props</span><span class="params">(obj, obj_name)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    result += obj_name + <span class="string">"."</span> + i + <span class="string">" = "</span> + obj[i] + <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="for…of_statement(新功能还在试验中)">for…of statement(新功能还在试验中)</h4><p>The <code>for...of</code> statement creates a loop Iterating over iterable objects (including <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>arguments object</code> and so on), invoking a custom iteration hook with statements to be executed for the <a href="#">value</a> of each distinct property.<br>很好的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</span><br><span class="line">arr.foo = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "0", "1", "2", "foo"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "3", "5", "7"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/21/js-note2/" data-id="ci9ynkbcb000mvf1uw325ae0c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/05/20/js-note1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript MDN 笔记(一)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"ashleyren"}; 
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲言碎语/">闲言碎语</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a><a href="/tags/blog/" style="font-size: 10px;">blog</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/github-pages/" style="font-size: 10px;">github pages</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/05/21/js-note2/">javascript MDN 笔记(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/20/js-note1/">javascript MDN 笔记(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/js事件委托/">JavaScript Event Delegation 事件委托</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/jsQuestions/">待整理 Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 河马宝宝<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">所有文章</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

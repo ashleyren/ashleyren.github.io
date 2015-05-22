@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>待整理 Notes | Ashley Ren&#39;s 笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Q1: What is the value of foo?1var foo = 10 + &apos;20&apos;;
+结果为“1020”
+这种只要是由一个string，结果就是string
+
+How would you make this work?12add(2, 5); // 7add(2)(5); // 7
+add(2,5)是很基本，讲讲add(2)(5)，这个说明add（2）返回的是一个函数这里用到了函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="待整理 Notes">
+<meta property="og:url" content="http://ashleyren.github.io/2015/05/18/jsQuestions/index.html">
+<meta property="og:site_name" content="Ashley Ren's 笔记">
+<meta property="og:description" content="Q1: What is the value of foo?1var foo = 10 + &apos;20&apos;;
+结果为“1020”
+这种只要是由一个string，结果就是string
+
+How would you make this work?12add(2, 5); // 7add(2)(5); // 7
+add(2,5)是很基本，讲讲add(2)(5)，这个说明add（2）返回的是一个函数这里用到了函数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="待整理 Notes">
+<meta name="twitter:description" content="Q1: What is the value of foo?1var foo = 10 + &apos;20&apos;;
+结果为“1020”
+这种只要是由一个string，结果就是string
+
+How would you make this work?12add(2, 5); // 7add(2)(5); // 7
+add(2,5)是很基本，讲讲add(2)(5)，这个说明add（2）返回的是一个函数这里用到了函数">
+  
+    <link rel="alternative" href="/atom.xml" title="Ashley Ren&#39;s 笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ashley Ren&#39;s 笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">所有文章</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://ashleyren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jsQuestions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/18/jsQuestions/" class="article-date">
+  <time datetime="2015-05-18T14:12:34.000Z" itemprop="datePublished">2015-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      待整理 Notes
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>Q1</strong>: What is the value of <code>foo</code>?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">10</span> + <span class="string">'20'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>结果为<code>“1020”</code></p>
+<p>这种只要是由一个string，结果就是string</p>
+<hr>
+<p>How would you make this work?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add(<span class="number">2</span>, <span class="number">5</span>); <span class="comment">// 7</span></span><br><span class="line">add(<span class="number">2</span>)(<span class="number">5</span>); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure></p>
+<p>add(2,5)是很基本，讲讲add(2)(5)，这个说明add（2）返回的是一个函数<br>这里用到了函数的闭包：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解释： 这个add(2)的时候返回了function(y)记住了x=2，然后return x+y 就是2+5 变相的两个量都记下来了。</p>
+<p>所以结果是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>] + <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (y !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span> </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解释：if the number of arguments passed is less than the number of arguments in the function definition, the missing arguments will have a value of <code>undefined</code> when referenced within the function.</p>
+<hr>
+<p>Question: What value is returned from the following statement?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"i'm a lasagna hog"</span>.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
+<p>split(“”)是分隔符为空，所以把每个字符都存下来 包括“ ” 产生一个字符的array<br>reverse()是反转<br>join(“”)是连接 分隔符木有<br>结果是 ：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"goh angasal a m'i"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Question: What is the value of window.foo?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">( <span class="built_in">window</span>.foo || ( <span class="built_in">window</span>.foo = <span class="string">"bar"</span> ) );</span><br></pre></td></tr></table></figure>
+<p>如果foo有值就不变，否则值为bar</p>
+<hr>
+<p>Question: What is the outcome of the two alerts below?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"Hello"</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> bar = <span class="string">" World"</span>;</span><br><span class="line">  alert(foo + bar);</span><br><span class="line">&#125;)();</span><br><span class="line">alert(foo + bar);</span><br></pre></td></tr></table></figure>
+<p>第一个打印hello word 因为是立即执行函数<br>第二个报错因为bar是局部变量，后一个alert作用域访问不到它哈哈哈哈</p>
+<hr>
+<p>What will the code below output? Explain your answer.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> == <span class="number">0.3</span>);</span><br></pre></td></tr></table></figure>
+<p>An educated answer to this question would simply be: “You can’t be sure. it might print out “0.3” and “true”, or it might not. Numbers in JavaScript are all treated with floating point precision, and as such, may not always yield the expected results.”</p>
+<p>The example provided above is classic case that demonstrates this issue. Surprisingly, it will print out:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.30000000000000004</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Write a simple function (less than 80 characters) that returns a boolean indicating whether or not a string is a palindrome.<br>解答：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPalindrome</span><span class="params">(str)</span> </span>&#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/\W/g</span>, <span class="string">''</span>).toLowerCase();</span><br><span class="line">    <span class="keyword">return</span> (str == str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>What is the significance, and what are the benefits, of including ‘use strict’ at the beginning of a JavaScript source file?<br><strong>Answer:</strong><br>The short and most important answer here is that use strict is a way to voluntarily enforce stricter parsing and error handling on your JavaScript code at runtime. Code errors that would otherwise have been ignored or would have failed silently will now generate errors or throw exceptions. In general, it is a good practice.</p>
+<p>Some of the key benefits of strict mode include:</p>
+<ul>
+<li><strong>Makes debugging easier</strong>. Code errors that would otherwise have been ignored or would have failed silently will now generate errors or throw exceptions, alerting you sooner to problems in your code and directing you more quickly to their source.</li>
+<li><strong>Prevents accidental globals.</strong> Without strict mode, assigning a value to an undeclared variable automatically creates a global variable with that name. This is one of the most common errors in JavaScript. In strict mode, attempting to do so throws an error.</li>
+<li><strong>Eliminates this coercion.</strong> Without strict mode, a reference to a this value of null or undefined is automatically coerced to the global. This can cause many headfakes and pull-out-your-hair kind of bugs. In strict mode, referencing a a this value of null or undefined throws an error.</li>
+<li><strong>Disallows duplicate property names or parameter values.</strong> Strict mode throws an error when it detects a duplicate named property in an object (e.g., <code>var object = {foo: &quot;bar&quot;, foo: &quot;baz&quot;};</code>) or a duplicate named argument for a function (e.g., <code>function foo(val1, val2, val1){}</code>), thereby catching what is almost certainly a bug in your code that you might otherwise have wasted lots of time tracking down.   </li>
+<li><strong>Makes <code>eval()</code> safer.</strong> There are some differences in the way <code>eval()</code> behaves in strict mode and in non-strict mode. Most significantly, in strict mode, variables and functions declared inside of an <code>eval()</code> statement are not created in the containing scope (they are created in the containing scope in non-strict mode, which can also be a common source of problems).</li>
+<li><strong>Throws error on invalid usage of <code>delete</code>.</strong> The <code>delete</code> operator (used to remove properties from objects) cannot be used on non-configurable properties of the object. Non-strict code will fail silently when an attempt is made to delete a non-configurable property, whereas strict mode will throw an error in such a case.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ashleyren.github.io/2015/05/18/jsQuestions/" data-id="ci9ynkbca000kvf1uv8rq84i8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/18/js事件委托/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript Event Delegation 事件委托
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"ashleyren"}; 
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲言碎语/">闲言碎语</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a><a href="/tags/blog/" style="font-size: 10px;">blog</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/github-pages/" style="font-size: 10px;">github pages</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/05/21/js-note2/">javascript MDN 笔记(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/20/js-note1/">javascript MDN 笔记(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/js事件委托/">JavaScript Event Delegation 事件委托</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/18/jsQuestions/">待整理 Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/13/菜鸟篇：技术博客平台到底哪家强？Hexo-初级入门/">菜鸟篇：技术博客平台哪家强？Hexo 初级入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 河马宝宝<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">所有文章</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
