@@ -84,7 +84,9 @@
 
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+      <div class="article-entry" itemprop="articleBody">
+    
+      
       
         <p>什么叫委托呢？想想我们现实生活中，自己要干的事，让别人来帮忙完成，这就是把事情“委托”给别人。<br>Javascript的事件委托机制同理:<br>本来一个<code>监听函数</code>，要处理子节点触发的事件，现在，把这个<code>监听函数</code>绑定到父层节点上，让父辈来监听事件。在父辈元素的监听函数中，可通过<code>event.target</code>属性拿到触发事件的原始元素（子节点），然后再对其进行处理。</p>
 <p>   那这样做有什么好处呢？是监听<code>动态</code>增加的元素。比如我们现在有这样的需求，点击下面每个列表项弹出各自的内容，现在随着web应用的盛行，网页中使用异步请求来动态加载节点已经变的很普遍，所以我们点击下方的按钮要在列表中增加一项，并且点击新增加的节点也要弹出内容。HTML结构如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ol</span> <span class="attribute">id</span>=<span class="value">"olist"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>列表内容5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ol</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -94,9 +96,10 @@
 <p>这样<code>ol</code>里面元素<code>li</code>的事件都会冒泡到<code>ol</code>，<code>event.target</code>指向对应的<code>li</code>，打印出内容。棒棒哒！</p>
 
       
-    </div>
+    
+  </div>
     <footer class="article-footer">
-      <a data-url="http://ashleyren.github.io/2015/05/18/js事件委托/" data-id="ci9z09nwd000j2v1u552kv57y" class="article-share-link">Share</a>
+      <a data-url="http://ashleyren.github.io/2015/05/18/js事件委托/" data-id="ci9z0cvb4000j4d1ufptj0sk7" class="article-share-link">Share</a>
       
       
     </footer>

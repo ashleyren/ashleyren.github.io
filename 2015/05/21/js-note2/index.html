@@ -85,7 +85,9 @@
 
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+      <div class="article-entry" itemprop="articleBody">
+    
+      
       
         <h4 id="Important:">Important:</h4><p>JavaScript does <strong>not</strong> have block scope prior to <code>ECMAScript 6</code>. Variables introduced within a block are scoped to the containing function or script, and the effects of setting them persist beyond the block itself. In other words, block statements do not introduce a scope. Although “standalone” blocks are valid syntax, you do not want to use standalone blocks in JavaScript, because they don’t do what you think they do, if you think they do anything like such blocks in C or Java.<br>也就是说ES6之前，js的block是没有自己的scope的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// outputs 2</span></span><br></pre></td></tr></table></figure></p>
 <p>ES6提供了<code>let</code>来做block的scope</p>
@@ -128,9 +130,10 @@
 <h4 id="for…of_statement(新功能还在试验中)">for…of statement(新功能还在试验中)</h4><p>The <code>for...of</code> statement creates a loop Iterating over iterable objects (including <code>Array</code>, <code>Map</code>, <code>Set</code>, <code>arguments object</code> and so on), invoking a custom iteration hook with statements to be executed for the <a href="#">value</a> of each distinct property.<br>很好的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</span><br><span class="line">arr.foo = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "0", "1", "2", "foo"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(i); <span class="comment">// logs "3", "5", "7"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
-    </div>
+    
+  </div>
     <footer class="article-footer">
-      <a data-url="http://ashleyren.github.io/2015/05/21/js-note2/" data-id="ci9z09nwg000m2v1u8xizjuug" class="article-share-link">Share</a>
+      <a data-url="http://ashleyren.github.io/2015/05/21/js-note2/" data-id="ci9z0cvb6000m4d1urixj59ot" class="article-share-link">Share</a>
       
       
     </footer>
